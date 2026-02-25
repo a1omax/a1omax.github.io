@@ -3,398 +3,684 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maksym Yevstratiev - Resume</title>
+    <title>Maksym Yevstratiev — Python & AI Developer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        /* Base and Reset */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --bg: #F7F5F0;
+            --surface: #FFFFFF;
+            --surface-2: #F0EDE6;
+            --ink: #1A1714;
+            --ink-2: #4A4540;
+            --ink-3: #8A847E;
+            --accent: #C8563A;
+            --accent-light: #F5EAE6;
+            --accent-2: #2B4D3A;
+            --border: #E2DDD6;
+            --border-strong: #C8C1B8;
+            --tag-bg: #EDE8E1;
+            --tag-hover: #DDD5C8;
         }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            color: #1a1a1a;
-            line-height: 1.5;
-            background-color: #f0f2f5;
-            padding: 2rem 1rem;
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
             font-size: 14px;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Page Container (A4 Proportions) */
-        .resume-container {
-            max-width: 850px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 50px 60px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        /* ─── PAGE WRAPPER ─── */
+        .page {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(26,23,20,0.06), 0 16px 48px rgba(26,23,20,0.06);
         }
 
-        /* Header section */
-        header {
-            text-align: center;
-            margin-bottom: 24px;
+        /* ─── HEADER ─── */
+        .header {
+            padding: 52px 64px 44px;
+            border-bottom: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 24px;
+            align-items: start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -60px; right: -40px;
+            width: 320px; height: 320px;
+            background: radial-gradient(circle, rgba(200,86,58,0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .header-eyebrow {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
         }
 
         h1 {
-            font-size: 32px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-            margin-bottom: 4px;
-            color: #000;
+            font-family: 'DM Serif Display', serif;
+            font-size: 52px;
+            font-weight: 400;
+            line-height: 1.0;
+            letter-spacing: -1px;
+            color: var(--ink);
+            margin-bottom: 6px;
         }
 
-        .title {
-            font-size: 16px;
-            font-weight: 500;
-            color: #444;
-            margin-bottom: 8px;
+        .header-subtitle {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--ink-2);
+            margin-bottom: 20px;
+            font-style: italic;
         }
 
-        .contact-info {
-            font-size: 13.5px;
-            color: #555;
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px 16px;
         }
 
-        .contact-info a {
-            color: #0056b3;
+        .contact-links a {
+            color: var(--ink-2);
             text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.2s;
         }
 
-        .contact-info a:hover {
-            text-decoration: underline;
+        .contact-links a:hover { color: var(--accent); }
+
+        .contact-links svg {
+            width: 13px; height: 13px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
         }
 
-        .separator {
-            margin: 0 6px;
-            color: #999;
-        }
-
-        /* Sections */
-        section {
-            margin-bottom: 24px;
-        }
-
-        h2.section-title {
-            font-size: 15px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #000;
-            border-bottom: 1px solid #000;
-            padding-bottom: 4px;
-            margin-bottom: 12px;
-        }
-
-        /* Experience & Education Items */
-        .item {
-            margin-bottom: 16px;
-        }
-
-        .item:last-child {
-            margin-bottom: 0;
-        }
-
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 2px;
-        }
-
-        .item-company {
-            font-weight: 700;
-            font-size: 15px;
-            color: #000;
-        }
-
-        .item-location {
-            font-style: italic;
-            color: #444;
-        }
-
-        .item-role-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
-        }
-
-        .item-role {
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: #EAF3EC;
+            border: 1px solid #BADED0;
+            color: var(--accent-2);
+            font-size: 12px;
             font-weight: 600;
-            font-style: italic;
-            font-size: 14px;
-            color: #333;
-        }
-
-        .item-date {
-            font-size: 13.5px;
-            color: #333;
+            padding: 8px 14px;
+            border-radius: 40px;
             white-space: nowrap;
-        }
-
-        /* Lists within descriptions */
-        .item-desc {
-            font-size: 13.5px;
-            color: #222;
-        }
-
-        .item-desc ul {
-            padding-left: 20px;
+            align-self: start;
             margin-top: 4px;
         }
 
-        .item-desc li {
-            margin-bottom: 4px;
+        .availability-badge::before {
+            content: '';
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #3B9A60;
+            box-shadow: 0 0 0 2px rgba(59,154,96,0.25);
         }
 
-        .item-desc p {
-            display: inline; /* Fix for nested <p> in <li> from JSON */
-            margin: 0;
-        }
-        
-        .item-desc a {
-            color: #0056b3;
-            text-decoration: none;
+        /* ─── BODY LAYOUT ─── */
+        .body {
+            display: grid;
+            grid-template-columns: 1fr 280px;
         }
 
-        /* Skills */
-        .skills-list {
-            list-style: none;
-            padding: 0;
-            font-size: 14px;
+        .main-col {
+            padding: 44px 48px 52px 64px;
+            border-right: 1px solid var(--border);
         }
 
-        .skills-list li {
-            margin-bottom: 6px;
+        .side-col {
+            padding: 44px 40px 52px;
         }
 
-        .skills-category {
-            font-weight: 700;
-            color: #000;
-            margin-right: 4px;
-        }
+        /* ─── SECTIONS ─── */
+        section { margin-bottom: 40px; }
+        section:last-child { margin-bottom: 0; }
 
-        /* Split layouts for smaller sections */
-        .split-section {
+        .section-header {
             display: flex;
-            gap: 40px;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
         }
 
-        .split-col {
+        .section-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--ink-3);
+        }
+
+        .section-line {
             flex: 1;
+            height: 1px;
+            background: var(--border);
         }
 
-        /* Specific tight layout for simple items */
-        .simple-item {
+        /* ─── EXPERIENCE ITEMS ─── */
+        .exp-item {
+            margin-bottom: 32px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .exp-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 8px;
+            width: 4px; height: 4px;
+            border-radius: 50%;
+            background: var(--border-strong);
+        }
+
+        .exp-item.current::before {
+            background: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+
+        .exp-item:last-child { margin-bottom: 0; }
+
+        .exp-meta {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 6px;
-            font-size: 13.5px;
+            align-items: baseline;
+            margin-bottom: 3px;
         }
-        
-        .simple-item-title {
+
+        .exp-company {
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--ink);
+        }
+
+        .exp-date {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--ink-3);
+            white-space: nowrap;
+        }
+
+        .exp-role {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--ink-2);
+            margin-bottom: 10px;
+        }
+
+        .exp-desc {
+            font-size: 13px;
+            color: var(--ink-2);
+            line-height: 1.65;
+        }
+
+        .exp-desc ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .exp-desc li {
+            padding-left: 14px;
+            position: relative;
+            margin-bottom: 5px;
+        }
+
+        .exp-desc li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--border-strong);
+            font-size: 11px;
+            top: 1px;
+        }
+
+        .exp-desc strong {
+            color: var(--ink);
             font-weight: 600;
         }
 
-        /* Mobile adaptation */
-        @media (max-width: 700px) {
-            .resume-container {
-                padding: 30px 20px;
+        /* ─── SKILL TAGS ─── */
+        .tag-group {
+            margin-bottom: 14px;
+        }
+
+        .tag-group-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ink-3);
+            margin-bottom: 7px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--tag-bg);
+            color: var(--ink-2);
+            font-size: 11.5px;
+            font-weight: 500;
+            padding: 4px 9px;
+            border-radius: 4px;
+            border: 1px solid transparent;
+            transition: background 0.15s, color 0.15s, border-color 0.15s, transform 0.15s;
+            cursor: default;
+        }
+
+        .tag:hover {
+            background: var(--tag-hover);
+            color: var(--ink);
+            border-color: var(--border-strong);
+            transform: translateY(-1px);
+        }
+
+        .tag.accent {
+            background: var(--accent-light);
+            color: var(--accent);
+            border-color: rgba(200,86,58,0.15);
+        }
+
+        .tag.accent:hover {
+            background: rgba(200,86,58,0.18);
+        }
+
+        /* ─── SIDE COLUMN ─── */
+        .side-section { margin-bottom: 32px; }
+        .side-section:last-child { margin-bottom: 0; }
+
+        .side-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--ink-3);
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ─── EDU ITEMS ─── */
+        .edu-item {
+            margin-bottom: 16px;
+        }
+        .edu-item:last-child { margin-bottom: 0; }
+
+        .edu-degree {
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .edu-school {
+            font-size: 12.5px;
+            color: var(--ink-2);
+            margin-bottom: 2px;
+        }
+
+        .edu-date {
+            font-size: 11.5px;
+            color: var(--ink-3);
+        }
+
+        /* ─── SIMPLE LIST ITEMS ─── */
+        .award-item, .cert-item {
+            margin-bottom: 12px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .award-item:last-child, .cert-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .award-title, .cert-title {
+            font-weight: 600;
+            font-size: 12.5px;
+            color: var(--ink);
+            margin-bottom: 2px;
+        }
+
+        .award-org, .cert-org {
+            font-size: 12px;
+            color: var(--ink-2);
+        }
+
+        .award-date, .cert-date {
+            font-size: 11px;
+            color: var(--ink-3);
+            margin-top: 2px;
+        }
+
+        .cert-title a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+
+        .cert-title a:hover { color: var(--accent); }
+
+        /* ─── LANGUAGE ─── */
+        .lang-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .lang-name { font-weight: 500; color: var(--ink); }
+        .lang-level { 
+            font-size: 11px; 
+            font-weight: 600;
+            background: var(--tag-bg);
+            color: var(--ink-3);
+            padding: 2px 7px;
+            border-radius: 3px;
+        }
+
+        /* ─── FOOTER BAR ─── */
+        .footer-bar {
+            background: var(--surface-2);
+            border-top: 1px solid var(--border);
+            padding: 14px 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bar span {
+            font-size: 11px;
+            color: var(--ink-3);
+        }
+
+        /* ─── PRINT ─── */
+        @media print {
+            body { background: white; font-size: 12px; }
+            .page {
+                margin: 0; box-shadow: none;
+                border: none; max-width: 100%;
             }
-            .item-header, .item-role-container {
-                flex-direction: column;
-            }
-            .item-date {
-                font-size: 12.5px;
-                color: #666;
-                margin-top: 2px;
-            }
-            .split-section {
-                flex-direction: column;
-                gap: 0;
-            }
+            .tag:hover { transform: none; }
+            .availability-badge { display: none; }
+            .footer-bar { display: none; }
+        }
+
+        @media (max-width: 720px) {
+            .header { padding: 32px 28px 28px; grid-template-columns: 1fr; }
+            h1 { font-size: 36px; }
+            .body { grid-template-columns: 1fr; }
+            .main-col { padding: 28px 28px 32px; border-right: none; border-bottom: 1px solid var(--border); }
+            .side-col { padding: 28px 28px 32px; }
+            .footer-bar { padding: 12px 28px; }
         }
     </style>
 </head>
 <body>
 
-<div class="resume-container">
-    <header>
-        <h1>Maksym Yevstratiev</h1>
-        <div class="title">Python Developer</div>
-        <div class="contact-info">
-            <span>Ukraine, Mykolaiv</span>
-            <span class="separator">•</span>
-            <a href="mailto:maksimevstratev@gmail.com">maksimevstratev@gmail.com</a>
-            <span class="separator">•</span>
-            <span>+380963757230</span>
-            <span class="separator">•</span>
-            <a href="https://www.linkedin.com/in/maksym-yevstratiev-964185176/" target="_blank">LinkedIn</a>
+<div class="page">
+    <!-- ─── HEADER ─── -->
+    <header class="header">
+        <div>
+            <div class="header-eyebrow">Python · AI · LLM Systems</div>
+            <h1>Maksym<br>Yevstratiev</h1>
+            <p class="header-subtitle">Middle Python Developer &amp; AI Engineer</p>
+            <div class="contact-links">
+                <a href="mailto:maksimevstratev@gmail.com">
+                    <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+                    maksimevstratev@gmail.com
+                </a>
+                <a href="tel:+380963757230">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.14 12 19.8 19.8 0 0 1 1.08 3.18 2 2 0 0 1 3.05 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    +380 96 375 7230
+                </a>
+                <a href="https://www.linkedin.com/in/maksym-yevstratiev-964185176/" target="_blank">
+                    <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    LinkedIn
+                </a>
+                <a href="#">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                    Mykolaiv, Ukraine
+                </a>
+            </div>
         </div>
+        <div class="availability-badge">Open to opportunities</div>
     </header>
 
-    <section>
-        <h2 class="section-title">Experience</h2>
-        
-        <div class="item">
-            <div class="item-header">
-                <span class="item-company">AltheraCode</span>
-                <span class="item-location"></span>
-            </div>
-            <div class="item-role-container">
-                <span class="item-role">Middle Python Developer</span>
-                <span class="item-date">Dec 2026 – Present</span>
-            </div>
-            <div class="item-desc">
-                <ul>
-                    <li>Implementing RAG pipeline with deployment on AWS.</li>
-                </ul>
-            </div>
+    <!-- ─── BODY ─── -->
+    <div class="body">
+        <!-- MAIN -->
+        <div class="main-col">
+
+            <!-- EXPERIENCE -->
+            <section>
+                <div class="section-header">
+                    <span class="section-label">Experience</span>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="exp-item current">
+                    <div class="exp-meta">
+                        <span class="exp-company">AltheraCode</span>
+                        <span class="exp-date">Dec 2026 – Present</span>
+                    </div>
+                    <div class="exp-role">Middle Python Developer</div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Implementing RAG pipeline with production deployment on AWS infrastructure.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item current">
+                    <div class="exp-meta">
+                        <span class="exp-company">HYS Enterprise (EpicStaff)</span>
+                        <span class="exp-date">Aug 2024 – Present · Remote</span>
+                    </div>
+                    <div class="exp-role">AI Developer — Python, LLM</div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li><strong>Architecture:</strong> Designed and developed microservice systems using Docker, FastAPI, and Django at scale.</li>
+                            <li><strong>LLM Integration:</strong> Unified interaction interfaces for OpenAI, Anthropic, and Mistral; optimized via prompt engineering.</li>
+                            <li><strong>Agentic Workflows:</strong> Orchestrated multi-agent systems; built Tool Calling mechanism with support for models lacking native function calling.</li>
+                            <li><strong>Advanced RAG &amp; Memory:</strong> Implemented Knowledge module with Naive Embedding, GraphRAG, and Hybrid Search; built long/short-term memory on modified mem0 library.</li>
+                            <li><strong>MCP &amp; Realtime API:</strong> Implemented Model Context Protocol support, custom FastMCP server, and Realtime API relay with dialog summarization.</li>
+                            <li><strong>DevOps:</strong> CI/CD pipelines, webhook integrations with auto-ngrok tunneling, production microservice deployment.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="exp-item">
+                    <div class="exp-meta">
+                        <span class="exp-company">Self-employed</span>
+                        <span class="exp-date">May 2023 – Aug 2023 · Remote</span>
+                    </div>
+                    <div class="exp-role">Python Software Engineer</div>
+                    <div class="exp-desc">
+                        <ul>
+                            <li>Built a service integrating website APIs with chatbot platforms (Telegram, WhatsApp, Viber), enabling users to manage accounts via bot interface.</li>
+                            <li>Implemented interactive navigation via buttons and contextual state transitions.</li>
+                            <li>Deployed on AWS; set up traffic monitoring and analytics for chatbot engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SKILLS -->
+            <section>
+                <div class="section-header">
+                    <span class="section-label">Technical Skills</span>
+                    <div class="section-line"></div>
+                </div>
+
+                <div class="tag-group">
+                    <div class="tag-group-label">AI &amp; LLM</div>
+                    <div class="tags">
+                        <span class="tag accent">RAG / GraphRAG</span>
+                        <span class="tag accent">LangChain / LangGraph</span>
+                        <span class="tag accent">MCP Protocol</span>
+                        <span class="tag accent">Prompt Engineering</span>
+                        <span class="tag accent">Agentic Workflows</span>
+                        <span class="tag accent">OpenAI API</span>
+                        <span class="tag accent">Anthropic API</span>
+                    </div>
+                </div>
+
+                <div class="tag-group">
+                    <div class="tag-group-label">Backend &amp; Frameworks</div>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Django</span>
+                        <span class="tag">Django REST Framework</span>
+                        <span class="tag">SQL</span>
+                    </div>
+                </div>
+
+                <div class="tag-group">
+                    <div class="tag-group-label">Data &amp; Storage</div>
+                    <div class="tags">
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Redis</span>
+                        <span class="tag">Vector DBs</span>
+                        <span class="tag">ORM</span>
+                        <span class="tag">Hybrid Search</span>
+                    </div>
+                </div>
+
+                <div class="tag-group">
+                    <div class="tag-group-label">DevOps &amp; Tools</div>
+                    <div class="tags">
+                        <span class="tag">Docker</span>
+                        <span class="tag">AWS</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Git</span>
+                        <span class="tag">Pytest</span>
+                    </div>
+                </div>
+            </section>
+
         </div>
 
-        <div class="item">
-            <div class="item-header">
-                <span class="item-company">HYS Enterprise (EpicStaff)</span>
-                <span class="item-location">Remote</span>
+        <!-- SIDEBAR -->
+        <div class="side-col">
+
+            <!-- EDUCATION -->
+            <div class="side-section">
+                <div class="side-label">Education</div>
+                <div class="edu-item">
+                    <div class="edu-degree">M.Sc. Computer Science</div>
+                    <div class="edu-school">Petro Mohyla Black Sea National University</div>
+                    <div class="edu-date">Sep 2024 – Dec 2025</div>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-degree">B.Sc. Computer Science</div>
+                    <div class="edu-school">Petro Mohyla Black Sea National University</div>
+                    <div class="edu-date">Sep 2020 – Jun 2024</div>
+                </div>
             </div>
-            <div class="item-role-container">
-                <span class="item-role">AI Developer (Python, LLM)</span>
-                <span class="item-date">Aug 2024 – Present</span>
+
+            <!-- AWARDS -->
+            <div class="side-section">
+                <div class="side-label">Awards</div>
+                <div class="award-item">
+                    <div class="award-title">🥈 2nd Place — Hackathon 2025</div>
+                    <div class="award-org">PMBSNU</div>
+                    <div class="award-date">April 2025</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">ICPC Ukraine Southern Contest</div>
+                    <div class="award-org">ICPC</div>
+                    <div class="award-date">October 2022</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">🥉 3rd Place — Hackathon 2021</div>
+                    <div class="award-org">PMBSNU</div>
+                    <div class="award-date">May 2021</div>
+                </div>
             </div>
-            <div class="item-desc">
-                <ul>
-                    <li><strong>Architecture:</strong> Design and development of microservice architecture using Docker and FastAPI/Django.</li>
-                    <li><strong>AI/LLM Integration:</strong> Integrated leading LLM providers (OpenAI, Anthropic, Mistral) and unified interaction interfaces. Optimized interactions via prompt engineering.</li>
-                    <li><strong>Agentic Workflows:</strong> Orchestrated interaction between agents and the environment. Developed Agent Tool Calling mechanism (including support for models without native tool calling) and workflow flows for decision-making.</li>
-                    <li><strong>Advanced RAG & Memory:</strong> Created a Knowledge module implementing Naive Embedding, GraphRAG, and Hybrid Search. Developed long-term and short-term agent memory based on a modified mem0 library.</li>
-                    <li><strong>Protocols & APIs:</strong> Implemented MCP protocol support, created custom FastMCP server, and integrated Realtime API through a custom relay server with tool support and dialog summarization.</li>
-                    <li><strong>DevOps & Integrations:</strong> Built webhook integration systems with automatic ngrok tunneling. Set up CI/CD pipelines, deployed, and supported microservices in production.</li>
-                </ul>
+
+            <!-- CERTIFICATIONS -->
+            <div class="side-section">
+                <div class="side-label">Certifications</div>
+                <div class="cert-item">
+                    <div class="cert-title">Java Basic+ Course</div>
+                    <div class="cert-org">GeeksForLess</div>
+                    <div class="cert-date">2024</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">
+                        <a href="https://diploma.programming.org.ua/en/d/RZ35KXBMkab67GeQRNmDY29J04vWjLnp" target="_blank">Computer Science Basics ↗</a>
+                    </div>
+                    <div class="cert-org">Ш++ (Stanford CSA106 format)</div>
+                    <div class="cert-date">2023</div>
+                </div>
+                <div class="cert-item">
+                    <div class="cert-title">
+                        <a href="https://www.efset.org/cert/oHiGy9" target="_blank">EF SET English Certificate ↗</a>
+                    </div>
+                    <div class="cert-org">Level: B2</div>
+                    <div class="cert-date">2024</div>
+                </div>
             </div>
+
+            <!-- LANGUAGES -->
+            <div class="side-section">
+                <div class="side-label">Languages</div>
+                <div class="lang-item">
+                    <span class="lang-name">English</span>
+                    <span class="lang-level">B2 Upper-Int.</span>
+                </div>
+                <div class="lang-item">
+                    <span class="lang-name">Ukrainian</span>
+                    <span class="lang-level">Native</span>
+                </div>
+            </div>
+
         </div>
-
-        <div class="item">
-            <div class="item-header">
-                <span class="item-company">Self-employed</span>
-                <span class="item-location">Remote</span>
-            </div>
-            <div class="item-role-container">
-                <span class="item-role">Python Software Engineer</span>
-                <span class="item-date">May 2023 – Aug 2023</span>
-            </div>
-            <div class="item-desc">
-                <ul>
-                    <li>Developed a service for integrating website APIs with chatbot platforms (Telegram, WhatsApp, Viber), enabling users to manage personal accounts via bot interface.</li>
-                    <li>Implemented interactive navigation via buttons and contextual transitions within chatbots.</li>
-                    <li>Deployed the service on AWS, ensuring proper configuration and scalability.</li>
-                    <li>Set up traffic monitoring and analytics for chatbot interactions to track engagement and performance.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2 class="section-title">Technical Skills</h2>
-        <ul class="skills-list">
-            <li><span class="skills-category">Programming Languages:</span> Python, SQL</li>
-            <li><span class="skills-category">AI & Machine Learning:</span> LLM Driven Automation, RAG, MCP (Model Context Protocol), LangChain, LangGraph</li>
-            <li><span class="skills-category">Frameworks & Libraries:</span> Django, Django REST Framework (DRF), FastAPI</li>
-            <li><span class="skills-category">Databases:</span> PostgreSQL, Redis, ORM</li>
-            <li><span class="skills-category">DevOps & Infrastructure:</span> Docker, AWS, Linux, Git, CI/CD</li>
-            <li><span class="skills-category">Core Concepts & Testing:</span> Data Mining, Algorithms & Data Structures, Pytest</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 class="section-title">Education</h2>
-        
-        <div class="item">
-            <div class="item-header">
-                <span class="item-company">Petro Mohyla Black Sea National University</span>
-                <span class="item-date">Sep 2024 – Dec 2025</span>
-            </div>
-            <div class="item-role-container" style="margin-bottom: 0;">
-                <span class="item-role">Master's degree, Computer Science</span>
-            </div>
-        </div>
-
-        <div class="item">
-            <div class="item-header">
-                <span class="item-company">Petro Mohyla Black Sea National University</span>
-                <span class="item-date">Sep 2020 – Jun 2024</span>
-            </div>
-            <div class="item-role-container" style="margin-bottom: 0;">
-                <span class="item-role">Bachelor, Computer Science</span>
-            </div>
-        </div>
-    </section>
-
-    <div class="split-section">
-        <section class="split-col">
-            <h2 class="section-title">Certifications</h2>
-            
-            <div class="simple-item">
-                <div>
-                    <span class="simple-item-title">Java Basic+ Course</span>
-                    <div>GeeksForLess</div>
-                </div>
-                <div class="item-date">2024</div>
-            </div>
-            
-            <div class="simple-item">
-                <div>
-                    <span class="simple-item-title"><a href="https://diploma.programming.org.ua/en/d/RZ35KXBMkab67GeQRNmDY29J04vWjLnp" target="_blank">Computer Science Basics</a></span>
-                    <div>Ш++ (Stanford CSA106+CSB106 format)</div>
-                </div>
-                <div class="item-date">2023</div>
-            </div>
-
-            <div class="simple-item">
-                <div>
-                    <span class="simple-item-title"><a href="https://www.efset.org/cert/oHiGy9" target="_blank">EF SET English Certificate</a></span>
-                    <div>Level: B2</div>
-                </div>
-                <div class="item-date">2024</div>
-            </div>
-        </section>
-
-        <section class="split-col">
-            <h2 class="section-title">Awards & Languages</h2>
-            
-            <div class="simple-item">
-                <div>
-                    <span class="simple-item-title">Second place in Hackathon 2025</span>
-                    <div>PMBSNU</div>
-                </div>
-                <div class="item-date">Apr 2025</div>
-            </div>
-
-            <div class="simple-item">
-                <div>
-                    <span class="simple-item-title">ICPC Ukraine Southern Contest</span>
-                    <div>ICPC</div>
-                </div>
-                <div class="item-date">Oct 2022</div>
-            </div>
-
-            <div class="simple-item">
-                <div>
-                    <span class="simple-item-title">Third place in Hackathon 2021</span>
-                    <div>PMBSNU</div>
-                </div>
-                <div class="item-date">May 2021</div>
-            </div>
-
-            <div style="margin-top: 16px; font-size: 14px;">
-                <strong>Languages:</strong> English (B2 - Upper Intermediate), Ukrainian (Native)
-            </div>
-        </section>
     </div>
 
+    <!-- ─── FOOTER ─── -->
+    <div class="footer-bar">
+        <span>Maksym Yevstratiev · Python &amp; AI Developer</span>
+        <span>Updated February 2026</span>
+    </div>
 </div>
+
 </body>
 </html>
